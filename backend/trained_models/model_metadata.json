@@ -1,0 +1,135 @@
+{
+  "version": "v1.6.0",
+  "model_name": "HistGradientBoosting Regressor",
+  "algorithm_type": "gradient_boosting",
+  "trained_at": "2026-11-18T08:08:24.626155",
+  "dataset_file": "bus_trip_history.csv",
+  "training_records_count": 8414,
+  "synthetic_records_ratio": 1.0,
+  "data_authenticity_notice": "Simulated-Data Performance (Synthetic Training Seeds)",
+  "features": {
+    "categorical": [
+      "route_id",
+      "stop_id",
+      "day_of_week",
+      "traffic_level",
+      "weather_condition"
+    ],
+    "numerical": [
+      "departure_hour",
+      "departure_minute",
+      "segment_distance_km",
+      "remaining_distance_km",
+      "number_of_remaining_stops",
+      "temperature",
+      "rainfall",
+      "humidity",
+      "previous_trip_delay"
+    ],
+    "total_count": 14
+  },
+  "targets": [
+    "actual_delay_minutes",
+    "actual_remaining_travel_minutes"
+  ],
+  "champion_validation_metrics": {
+    "delay_mae": 2.647,
+    "delay_rmse": 3.355,
+    "remaining_time_mae": 1.357,
+    "remaining_time_rmse": 2.033,
+    "overall_r2": 0.891
+  },
+  "champion_test_metrics": {
+    "delay_mae": 2.59,
+    "delay_rmse": 3.228,
+    "remaining_time_mae": 1.373,
+    "remaining_time_rmse": 2.061,
+    "overall_r2": 0.902
+  },
+  "baseline_validation_metrics": {
+    "delay_mae": 5.764,
+    "delay_rmse": 7.188,
+    "overall_r2": 0.491
+  },
+  "prediction_interval_parameters": {
+    "confidence_level": 0.8,
+    "delay_margin_minutes": -4.08,
+    "label": "80% Estimated Prediction Interval (Validation Residual Quantile Method)"
+  },
+  "candidate_comparisons": [
+    {
+      "model_name": "Baseline (Historical Average)",
+      "algorithm_type": "empirical_baseline",
+      "params": {},
+      "train_delay_mae": 5.625,
+      "train_delay_rmse": 7.089,
+      "train_remaining_time_mae": 4.623,
+      "train_overall_r2": 0.498,
+      "val_delay_mae": 5.764,
+      "val_delay_rmse": 7.188,
+      "val_remaining_time_mae": 4.745,
+      "val_remaining_time_rmse": 6.23,
+      "val_overall_r2": 0.491,
+      "val_overall_mae": 5.254,
+      "val_overall_rmse": 6.709
+    },
+    {
+      "model_name": "Linear Regression (Ridge)",
+      "algorithm_type": "linear",
+      "params": {
+        "alpha": 10.0
+      },
+      "train_delay_mae": 2.948,
+      "train_delay_rmse": 3.651,
+      "train_remaining_time_mae": 2.054,
+      "train_overall_r2": 0.867,
+      "val_delay_mae": 3.056,
+      "val_delay_rmse": 3.858,
+      "val_remaining_time_mae": 2.09,
+      "val_remaining_time_rmse": 2.827,
+      "val_overall_r2": 0.854,
+      "val_overall_mae": 2.573,
+      "val_overall_rmse": 3.343
+    },
+    {
+      "model_name": "Random Forest Regressor",
+      "algorithm_type": "random_forest",
+      "params": {
+        "n_estimators": 100,
+        "max_depth": 12,
+        "min_samples_leaf": 3
+      },
+      "train_delay_mae": 2.002,
+      "train_delay_rmse": 2.535,
+      "train_remaining_time_mae": 1.133,
+      "train_overall_r2": 0.936,
+      "val_delay_mae": 3.131,
+      "val_delay_rmse": 3.954,
+      "val_remaining_time_mae": 1.8,
+      "val_remaining_time_rmse": 2.567,
+      "val_overall_r2": 0.848,
+      "val_overall_mae": 2.465,
+      "val_overall_rmse": 3.26
+    },
+    {
+      "model_name": "HistGradientBoosting Regressor",
+      "algorithm_type": "gradient_boosting",
+      "params": {
+        "max_iter": 120,
+        "max_depth": 8,
+        "learning_rate": 0.08
+      },
+      "train_delay_mae": 2.186,
+      "train_delay_rmse": 2.741,
+      "train_remaining_time_mae": 1.057,
+      "train_overall_r2": 0.926,
+      "val_delay_mae": 2.647,
+      "val_delay_rmse": 3.355,
+      "val_remaining_time_mae": 1.357,
+      "val_remaining_time_rmse": 2.033,
+      "val_overall_r2": 0.891,
+      "val_overall_mae": 2.002,
+      "val_overall_rmse": 2.694
+    }
+  ]
+}

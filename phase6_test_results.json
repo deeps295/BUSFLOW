@@ -1,0 +1,33 @@
+{
+  "summary": {
+    "total": 23,
+    "passed": 18,
+    "partial": 0,
+    "failed": 5
+  },
+  "results": {
+    "1a_password_hashing": "PASS",
+    "1b_demo_credentials": "PASS",
+    "1c_rbac_tokens": "PASS",
+    "2a_route_count": "PASS (10 routes)",
+    "2b_stop_sequences": "PASS (88 stops, all ordered)",
+    "2c_stop_route_relationship": "PASS",
+    "3a_model_load": "PASS",
+    "3b_prediction": "PASS | LOW=-1.60m, SEVERE=10.00m, RAIN=0.20m",
+    "3c_no_leakage": "PASS (14 features, no leakage)",
+    "3d_metrics": "FAIL: [Errno 2] No such file or directory: 'trained_models/model_metadata.json'",
+    "3e_severity": "PASS (6 boundary cases)",
+    "3f_robustness": "PASS (unseen route/stop delay=1.80m)",
+    "4a_driver_assignment": "PASS (driver_id=1, bus=Bus 1, route=Bus 1)",
+    "4b_trip_lifecycle": "PASS (trip_id=18, report_id=16)",
+    "5a_student_profile": "PASS (id=1, roll=718121104042)",
+    "5b_prediction": "PASS (delay=0.10m, severity=?)",
+    "6a_admin_dashboard": "PASS {'routes': 10, 'buses': 10, 'students': 12, 'drivers': 1, 'trips': 18, 'traffic_rpts': 16, 'training_runs': 3}",
+    "6b_model_metadata": "FAIL: [Errno 2] No such file or directory: 'trained_models/model_metadata.json'",
+    "7a_weather_service": "PASS (condition=CLEAR, temp=28.5\u00b0C, is_live=False)",
+    "7b_weather_attribution": "PASS (lat=10.85, lon=76.98, URL=https://api.open-meteo.com/v1/forecast\u2026)",
+    "8a_frontend_build": "FAIL: dist/index.html missing",
+    "8b_all_pages": "FAIL: Missing: ..\\frontend\\src\\pages\\LandingPage.jsx",
+    "8c_core_files": "FAIL: Missing files: ['App.jsx', 'AuthContext', 'ToastContext', 'BubbleBackground', 'Navbar', 'api.js', 'studentService', 'driverService', 'adminService', 'useRoutes', 'usePrediction', 'useTripStatus']"
+  }
+}
